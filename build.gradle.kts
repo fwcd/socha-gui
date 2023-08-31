@@ -74,7 +74,6 @@ tasks {
     withType<KotlinCompile> {
         dependsOn(backend.task(":server:deploy"))
         kotlinOptions {
-            jvmTarget = minJavaVersion.toString()
             freeCompilerArgs = listOf("-Xjvm-default=all")
         }
     }
