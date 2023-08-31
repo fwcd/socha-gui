@@ -10,9 +10,9 @@ plugins {
     }
     
     application
-    kotlin("jvm") version "1.5.20"
+    kotlin("jvm") version "1.9.10"
     id("org.openjfx.javafxplugin") version "0.0.13"
-    id("com.github.johnrengelman.shadow") version "6.1.0"
+    id("com.github.johnrengelman.shadow") version "8.0.0"
     
     id("com.github.ben-manes.versions") version "0.42.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.18"
@@ -35,7 +35,7 @@ version = try {
 println("Current version: $version (Java version: ${JavaVersion.current()})")
 
 application {
-    mainClassName = "sc.gui.GuiAppKt" // needs shadow-update which needs gradle update to 7.0
+    mainClass.set("sc.gui.GuiAppKt")
 }
 
 repositories {
@@ -80,7 +80,7 @@ tasks {
     }
     
     withType<Jar> {
-        manifest.attributes["Main-Class"] = application.mainClassName
+        manifest.attributes["Main-Class"] = application.mainClass
     }
     
     javafx {

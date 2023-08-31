@@ -5,8 +5,8 @@ includeBuild("backend") {
     // https://publicobject.com/2021/03/11/includebuild
     dependencySubstitution {
         substitute(module("software-challenge:plugin"))
-                .with(project(":plugin"))
+                .using(project(":plugin"))
         substitute(module("software-challenge:server"))
-                .with(project(":server"))
+                .using(project(":server"))
     }
 }
